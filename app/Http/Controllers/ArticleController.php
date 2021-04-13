@@ -15,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $article=Article::all();
+        return view('articles.index', compact('article'));
     }
 
     /**
@@ -46,6 +47,7 @@ class ArticleController extends Controller
             'feature_image' => $image_name,
         ]);
         
+        // return redirect()->route('articles.index')->with('success', 'Data article saved successfully');
         return 'Article Berhasil Disimpan';
     }
 

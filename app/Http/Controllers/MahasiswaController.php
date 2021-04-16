@@ -5,6 +5,7 @@ use App\Models\Mahasiswa;
 use App\Models\Kelas;
 use App\Models\Article;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 use Illuminate\Http\Request;
 
@@ -161,5 +162,11 @@ class MahasiswaController extends Controller
         //menampilkan detail data nilai mahasiswa dengan menemukan/berdasarkan Nim Mahasiswa
         $mahasiswa = Mahasiswa::with('kelas', 'matakuliah')->find($nim);
         return view('mahasiswa.nilai', compact('mahasiswa'));
+    }
+    
+    public function cetak_nilai($nim){
+        $mahasiswa = Mahasiswa::findOrFail($nim);
+        $pdf = PDF::loadview('mahasiswa.cetak_nilai', ['mahasiswa' => $mahasiswa]);
+        return $pdf->stream();
     }
 }

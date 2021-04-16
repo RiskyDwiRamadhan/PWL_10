@@ -33,6 +33,11 @@
             </table>
             <div class="col">
                 <a href="{{ route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>
+                {{-- <a href="{{ route('mahasiswa.catak_pdf') }}" class="btn btn-danger">Cetak Ke pdf</a> --}}
+            </div>
+            <div class="col">
+                {{-- {{-- <a href="{{ /route('mahasiswa.index') }}" class="btn btn-secondary">Kembali</a>  --}}
+                <a href="{{ route('mahasiswa.cetak_nilai',$mahasiswa->nim) }}" class="btn btn-danger">Cetak Ke pdf</a>
             </div>
         </div>
     </div>

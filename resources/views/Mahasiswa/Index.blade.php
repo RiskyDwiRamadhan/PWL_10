@@ -31,7 +31,7 @@
         </div>
     @endif
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" enctype="multipart/form-data">
         <tr>
             <th>Nim</th>
             <th>Nama</th>
@@ -45,7 +45,7 @@
                 <tr>
                     <td>{{ $Mahasiswa->nim }}</td>
                     <td>{{ $Mahasiswa->nama }}</td>
-                    <td><img width="100px" src="{{asset('storage/'.$article->feature_image)}}"></td>
+                    <td><img width="100px" src="{{asset('storage/'.$Mahasiswa->foto)}}"></td>
                     <td>{{ $Mahasiswa->kelas->nama_kelas}}</td>
                     <td>{{ $Mahasiswa->jurusan }}</td>
                     <td>{{ $Mahasiswa->no_hp }}</td>

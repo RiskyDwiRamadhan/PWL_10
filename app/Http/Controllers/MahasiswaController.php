@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Models\Article;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 
@@ -26,7 +28,8 @@ class MahasiswaController extends Controller
             //fungsi eloquent menampilkan data menggunakan pagination
             $mahasiswas = Mahasiswa::paginate(5); // Pagination menampilkan 5 data
         }
-        return view('mahasiswa.index', compact('mahasiswas'));
+        $article=Article::all();
+        return view('mahasiswa.index', compact('mahasiswas', 'article'));
 
         // $mahasiswa = Mahasiswa::with('kelas')->get();   
         // $
